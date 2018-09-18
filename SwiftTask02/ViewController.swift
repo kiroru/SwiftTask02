@@ -53,6 +53,7 @@ class ViewController: UIViewController {
                 print("Error deleting category, \(error)")
             }
         }
+        loadItems()
     }
     
     func getNewId() -> Int {
@@ -78,7 +79,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return items?.count ?? 1
+        return items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
