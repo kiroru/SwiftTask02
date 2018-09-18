@@ -20,8 +20,6 @@ class ViewController: UIViewController {
         didSet {
             if backFromEditerVC {
                 loadItems()
-                print("load")
-                print(items!)
             }
         }
     }
@@ -33,8 +31,7 @@ class ViewController: UIViewController {
         
         tableView?.delegate = self
         tableView?.dataSource = self
-        
-    }
+        }
     
     // MARK: - Data Manupilation Methods
     func loadItems() {
@@ -78,7 +75,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return items?.count ?? 0
     }
     
@@ -97,13 +93,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             tv2.text = item.explanation
             
         }
-        
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationVC = segue.destination as! EditerViewController
-        
         if let indexPath = tableView.indexPathForSelectedRow {
             destinationVC.selectedItem = items?[indexPath.row]
         }
@@ -113,6 +107,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         return 80.0
     }
     
+    // セルをスワイプしたら削除
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let removeAction = UIContextualAction(style: .destructive,
                                               title: "削除",
@@ -126,5 +121,4 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
         return UISwipeActionsConfiguration(actions: [removeAction])
     }
-    
 }

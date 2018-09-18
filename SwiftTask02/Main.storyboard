@@ -68,7 +68,6 @@
                                 <items>
                                     <navigationItem title="SwiftTask02" id="ZIT-s9-3YE">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lJq-H2-ve8">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <action selector="add:" destination="Ubj-x0-rjV" id="nHF-WL-Mqr"/>
                                             </connections>
@@ -128,7 +127,6 @@
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KU6-wE-fe5">
                                 <rect key="frame" x="87.5" y="160" width="200" height="40"/>
-                                <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Edt-vu-xg2"/>
                                     <constraint firstAttribute="height" constant="40" id="sXI-KN-CsL"/>
@@ -139,7 +137,6 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rPS-2D-YMG">
                                 <rect key="frame" x="87.5" y="420" width="200" height="40"/>
-                                <color key="backgroundColor" name="controlHighlightColor" catalog="System" colorSpace="catalog"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="WlF-sI-Dd6"/>
                                     <constraint firstAttribute="height" constant="40" id="me8-Tg-wcT"/>
@@ -150,28 +147,22 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vtb-rM-TX6">
                                 <rect key="frame" x="235" y="547" width="100" height="40"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="gyr-dq-XO5"/>
                                     <constraint firstAttribute="width" constant="100" id="h9c-Hx-HU0"/>
                                 </constraints>
-                                <state key="normal" title="OK">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
+                                <state key="normal" title="OK"/>
                                 <connections>
                                     <action selector="okWithSender:" destination="c2b-w6-8VD" eventType="touchUpInside" id="ovI-jZ-wtS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3e-7g-IvL">
                                 <rect key="frame" x="40" y="547" width="100" height="40"/>
-                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="V6r-9f-ck5"/>
                                     <constraint firstAttribute="width" constant="100" id="bo9-Ye-xuD"/>
                                 </constraints>
-                                <state key="normal" title="キャンセル">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
+                                <state key="normal" title="キャンセル"/>
                                 <connections>
                                     <action selector="cancel:" destination="c2b-w6-8VD" eventType="touchUpInside" id="dvY-MO-yVI"/>
                                 </connections>
@@ -195,8 +186,8 @@
                         <viewLayoutGuide key="safeArea" id="6Jb-sY-zxW"/>
                     </view>
                     <connections>
-                        <outlet property="explanationTextField" destination="rPS-2D-YMG" id="dmy-3P-Cav"/>
-                        <outlet property="titleTextField" destination="KU6-wE-fe5" id="iEv-pa-5fd"/>
+                        <outlet property="textFieldExplanation" destination="rPS-2D-YMG" id="dmy-3P-Cav"/>
+                        <outlet property="textFieldTitle" destination="KU6-wE-fe5" id="iEv-pa-5fd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UhU-tS-54M" userLabel="First Responder" sceneMemberID="firstResponder"/>
