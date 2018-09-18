@@ -20,6 +20,8 @@ class ViewController: UIViewController {
         didSet {
             if backFromEditerVC {
                 loadItems()
+                print("load")
+                print(items!)
             }
         }
     }
@@ -76,7 +78,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return items?.count ?? 0
+        return items?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -111,9 +113,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let removeAction = UIContextualAction(style: .normal,
+        let removeAction = UIContextualAction(style: .destructive,
                                               title: "削除",
                                               handler: {(action: UIContextualAction, view: UIView, success :(Bool) -> Void) in
+                                                print(indexPath)
                                                 self.delete(at: indexPath)
                                                 success(true)
         })

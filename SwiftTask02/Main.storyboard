@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="iv2-ma-eNR">
             <objects>
-                <viewController id="Ubj-x0-rjV" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ubj-x0-rjV" customClass="ViewController" customModule="SwiftTask02" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Oj-OL-GK7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
