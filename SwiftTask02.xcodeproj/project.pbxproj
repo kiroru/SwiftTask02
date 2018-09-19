@@ -16,7 +16,7 @@
 		98A60DB3214B8CE000D112E0 /* SwiftTask02Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A60DB2214B8CE000D112E0 /* SwiftTask02Tests.swift */; };
 		98A60DBE214B8CE100D112E0 /* SwiftTask02UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A60DBD214B8CE100D112E0 /* SwiftTask02UITests.swift */; };
 		98A60DCC214B99AE00D112E0 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A60DCB214B99AE00D112E0 /* Item.swift */; };
-		98A60DCE214BB03900D112E0 /* EditerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A60DCD214BB03800D112E0 /* EditerViewController.swift */; };
+		98A60DCE214BB03900D112E0 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A60DCD214BB03800D112E0 /* EditorViewController.swift */; };
 		98E2D6BD215095D8007B113B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98E2D6BC215095D8007B113B /* Main.storyboard */; };
 		EBFB21B5B6AB855F18238745 /* Pods_SwiftTask02Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD2E55F005F985B0F1B5AE81 /* Pods_SwiftTask02Tests.framework */; };
 /* End PBXBuildFile section */
@@ -57,7 +57,7 @@
 		98A60DBD214B8CE100D112E0 /* SwiftTask02UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTask02UITests.swift; sourceTree = "<group>"; };
 		98A60DBF214B8CE100D112E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98A60DCB214B99AE00D112E0 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = ../../../testzone/RealmSample/RealmSample/Model/Item.swift; sourceTree = "<group>"; };
-		98A60DCD214BB03800D112E0 /* EditerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditerViewController.swift; path = ../../../testzone/RealmSample/RealmSample/EditerViewController.swift; sourceTree = "<group>"; };
+		98A60DCD214BB03800D112E0 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorViewController.swift; path = ../../../testzone/RealmSample/RealmSample/EditorViewController.swift; sourceTree = "<group>"; };
 		98E2D6BC215095D8007B113B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A810FAE62A96879368E3890B /* Pods-SwiftTask02.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTask02.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTask02/Pods-SwiftTask02.debug.xcconfig"; sourceTree = "<group>"; };
 		B2F76D534535504D99DB9DF2 /* Pods_SwiftTask02UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTask02UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,7 +143,7 @@
 			children = (
 				98A60D9D214B8CDE00D112E0 /* AppDelegate.swift */,
 				98A60D9F214B8CDE00D112E0 /* ViewController.swift */,
-				98A60DCD214BB03800D112E0 /* EditerViewController.swift */,
+				98A60DCD214BB03800D112E0 /* EditorViewController.swift */,
 				98E2D6BC215095D8007B113B /* Main.storyboard */,
 				98A60DCB214B99AE00D112E0 /* Item.swift */,
 				98A60DA4214B8CE000D112E0 /* Assets.xcassets */,
@@ -384,7 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98A60DA0214B8CDE00D112E0 /* ViewController.swift in Sources */,
-				98A60DCE214BB03900D112E0 /* EditerViewController.swift in Sources */,
+				98A60DCE214BB03900D112E0 /* EditorViewController.swift in Sources */,
 				98A60DCC214B99AE00D112E0 /* Item.swift in Sources */,
 				98A60D9E214B8CDE00D112E0 /* AppDelegate.swift in Sources */,
 			);
