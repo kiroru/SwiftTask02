@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import RealmSwift
 
 class ViewController: UIViewController {
     
-    let realm = try! Realm()
-    var items: Results<Item>?
+    var items: [Item]?
     
     @IBOutlet var tableView:UITableView!
 
@@ -31,32 +29,18 @@ class ViewController: UIViewController {
         
         tableView?.delegate = self
         tableView?.dataSource = self
-        }
+    }
     
     // MARK: - Data Manupilation Methods
     func loadItems() {
-        items = realm.objects(Item.self)
-        
+        items = DBManager.sharedManager.loadItems()
         tableView?.reloadData()
     }
     
     func delete(at indexPath: IndexPath) {
-        if let itemForDeletion = items?[indexPath.row] {
-            do {
-                try realm.write {
-                    realm.delete(itemForDeletion)
-                }
-            } catch {
-                print("Error deleting category, \(error)")
-            }
-        }
+        let item = items![indexPath.row]
+        _ = DBManager.sharedManager.delete(id: item.id)
         loadItems()
-    }
-    
-    func getNewId() -> Int {
-        var itemCount = realm.objects(Item.self).count
-        itemCount += 1
-        return itemCount
     }
     
     // MARK: -Add New Items
