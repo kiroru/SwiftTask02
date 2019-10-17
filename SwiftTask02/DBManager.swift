@@ -18,17 +18,6 @@ class DBManager: NSObject {
         // Do nothing
     }
     
-    func check() -> Bool {
-        print(Realm.Configuration.defaultConfiguration.fileURL ?? 000)
-        do {
-            _ = try Realm()
-        } catch {
-            print("Error initialising new realm \(error)")
-            return false
-        }
-        return true
-    }
-    
     func loadItems() -> [Item] {
         return realm.objects(Item.self).map {$0}
     }
@@ -56,7 +45,6 @@ class DBManager: NSObject {
             try realm.write {
                 realm.add(item)
             }
-            
         } catch {
             print("Error saving item \(error)")
             return nil
@@ -84,6 +72,10 @@ class DBManager: NSObject {
     }
     
     func newId() -> Int {
-        return count() + 1
+        if let item = realm.objects(Item.self).sorted(byKeyPath: "id").last {
+            return item.id + 1
+        } else {
+            return 1
+        }
     }
 }

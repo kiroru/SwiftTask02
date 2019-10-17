@@ -9,32 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+        
     var items: [Item]?
-    
     @IBOutlet var tableView:UITableView!
-
-    var backFromEditerVC : Bool = true {
-        didSet {
-            if backFromEditerVC {
-                loadItems()
-            }
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        tableView.dataSource = self
         loadItems()
-        
-        tableView?.delegate = self
-        tableView?.dataSource = self
     }
     
     // MARK: - Data Manupilation Methods
     func loadItems() {
         items = DBManager.sharedManager.loadItems()
-        tableView?.reloadData()
+        tableView.reloadData()
     }
     
     func delete(at indexPath: IndexPath) {
@@ -43,16 +33,33 @@ class ViewController: UIViewController {
         loadItems()
     }
     
-    // MARK: -Add New Items
+    // MARK: - Add New Items
     
     @IBAction func add(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "goEdit", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! EditorViewController
+        destinationVC.delegate = self
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedItem = items?[indexPath.row]
+        }
+    }
+    
+}
+
+// MARK: - EditorDelegate
+extension ViewController: EditorDelegate {
+    
+    func itemChanged() {
+        loadItems()
+    }
+    
 }
 
 // MARK: - Table View Delegate, Datasource Methods
-extension ViewController: UITableViewDelegate, UITableViewDataSource{
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -80,12 +87,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! EditerViewController
-        if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedItem = items?[indexPath.row]
-        }
-    }
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
