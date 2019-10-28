@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
         
     var items: [Item]?
-    @IBOutlet var tableView:UITableView!
+    @IBOutlet weak var tableView:UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         tableView.reloadData()
     }
     
-    func delete(at indexPath: IndexPath) {
+    func delete(_ indexPath: IndexPath) {
         let item = items![indexPath.row]
         _ = DBManager.sharedManager.delete(id: item.id)
         loadItems()
@@ -40,17 +40,18 @@ class ViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! EditorViewController
-        destinationVC.delegate = self
+        let controller = segue.destination as! EditorViewController
+        controller.delegate = self
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedItem = items?[indexPath.row]
+            controller.selectedItem = items?[indexPath.row]
+            tableView.deselectRow(at: indexPath, animated: false)
         }
     }
     
 }
 
-// MARK: - EditorDelegate
-extension ViewController: EditorDelegate {
+// MARK: - EditorViewControllerDelegate
+extension ViewController: EditorViewControllerDelegate {
     
     func itemChanged() {
         loadItems()
@@ -76,18 +77,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath)
         if let item = items?[indexPath.row]{
-            
             let tv1 = cell.viewWithTag(1) as! UILabel
             tv1.text = item.title
-            
             let tv2 = cell.viewWithTag(2) as! UILabel
             tv2.text = item.explanation
-            
         }
         return cell
     }
-    
-
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
@@ -99,7 +95,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                                               title: "削除",
                                               handler: {(action: UIContextualAction, view: UIView, success :(Bool) -> Void) in
                                                 print(indexPath)
-                                                self.delete(at: indexPath)
+                                                self.delete(indexPath)
                                                 success(true)
         })
         removeAction.image = UIImage(named: "trash")

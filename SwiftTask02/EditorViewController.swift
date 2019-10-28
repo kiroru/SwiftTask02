@@ -14,7 +14,7 @@ class EditorViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textFieldExplanation: UITextField!
     
     var selectedItem : Item?
-    var delegate: EditorDelegate?
+    var delegate: EditorViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +27,6 @@ class EditorViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Data Manupilation Methods
-    func create() {
-        if let newItem = DBManager.sharedManager.create(title: textFieldTitle.text!,
-                                                        explanation: textFieldExplanation.text!) {
-            selectedItem = newItem
-        }
-    }
-    
-    func update() {
-        _ = DBManager.sharedManager.update(item: selectedItem!,
-                                           title: textFieldTitle.text!,
-                                           explanation: textFieldExplanation.text!)
-    }
     
     @IBAction func ok(sender: UIButton) {
         
@@ -56,8 +44,21 @@ class EditorViewController: UIViewController, UITextFieldDelegate {
     @IBAction func cancel(_ sender: UIButton) {
         self.dismiss(animated: false, completion: nil)
     }
+    
+    func create() {
+        _ = DBManager.sharedManager.create(title: textFieldTitle.text!, explanation: textFieldExplanation.text!)
+    }
+    
+    func update() {
+        if let selectedId = selectedItem?.id {
+            _ = DBManager.sharedManager.update(id: selectedId,
+                                               title: textFieldTitle.text!,
+                                               explanation: textFieldExplanation.text!)
+        }
+    }
+    
 }
 
-protocol EditorDelegate {
+protocol EditorViewControllerDelegate {
     func itemChanged()
 }

@@ -53,11 +53,12 @@ class DBManager: NSObject {
         return item
     }
     
-    func update(item: Item, title: String, explanation: String) -> Bool {
+    func update(id: Int, title: String, explanation: String) -> Bool {
         do {
             try realm.write {
-                item.title = title
-                item.explanation = explanation
+                let item = realm.objects(Item.self).filter("id = %@", id).first
+                item?.title = title
+                item?.explanation = explanation
             }
         } catch {
             print("Error deleting category, \(error)")
