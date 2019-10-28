@@ -98,7 +98,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                                                 self.delete(indexPath)
                                                 success(true)
         })
-        removeAction.image = UIImage(named: "trash")
         removeAction.backgroundColor = .red
     
         return UISwipeActionsConfiguration(actions: [removeAction])
